@@ -51,7 +51,7 @@ test("pre-launch robots indexing must be explicitly enabled", () => {
 
 test("marketing page stays server-rendered; animation wrapper stays isolated", () => {
   assert.doesNotMatch(landing, /["']use client["']/);
-  assert.match(landing, /components\\/reveal/);
+  assert.ok(landing.includes('from "@/components/reveal"'));
   assert.match(read("components/reveal.tsx"), /"use client"/);
   assert.match(read("components/intro.tsx"), /intro-on-load/);
 });
