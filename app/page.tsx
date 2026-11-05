@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { Intro } from "@/components/intro";
 import { Reveal } from "@/components/reveal";
+import type { ReactNode } from "react";
 
 function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
