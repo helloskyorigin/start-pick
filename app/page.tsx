@@ -5,21 +5,9 @@ import {
   ShieldCheck, Sparkles, Target, TrendingUp
 } from "lucide-react";
 import { Intro } from "@/components/intro";
+import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
 import type { ReactNode } from "react";
-
-function Logo({ inverted = false }: { inverted?: boolean }) {
-  return (
-    <Link href="/" className={inverted ? "brand brand-inverted" : "brand"} aria-label="StartPick home">
-      <span className="brand-mark" aria-hidden="true">
-        <span className="mark-line mark-line-one" />
-        <span className="mark-line mark-line-two" />
-        <span className="mark-dot" />
-      </span>
-      <span className="brand-name">startpick<span className="brand-period">.</span></span>
-    </Link>
-  );
-}
 
 function StartLink({ theme = "dark", className = "" }: { theme?: "dark" | "light"; className?: string }) {
   return (
