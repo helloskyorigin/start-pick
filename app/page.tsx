@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
