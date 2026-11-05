@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Mail, ShieldCheck } from "lucide-react";
 import { legalDocuments, legalLinks, type LegalSlug } from "@/lib/legal-content";
+import { Logo } from "@/components/logo";
 
 export function LegalPage({ slug }: { slug: LegalSlug }) {
   const doc = legalDocuments[slug];
@@ -9,7 +10,7 @@ export function LegalPage({ slug }: { slug: LegalSlug }) {
     <div className="legal-page">
       <header className="legal-header">
         <div className="shell legal-header-content">
-          <Link href="/" className="legal-brand" aria-label="StartPick home"><span className="legal-brand-mark">S<span>.</span></span><span>startpick<span className="brand-period">.</span></span></Link>
+          <Logo />
           <Link href="/" className="legal-back"><ArrowLeft size={16} aria-hidden="true" /> Back to site</Link>
         </div>
       </header>
