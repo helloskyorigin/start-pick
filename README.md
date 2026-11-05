@@ -40,3 +40,5 @@ Before launch, complete [LEGAL_LAUNCH_CHECKLIST.md](LEGAL_LAUNCH_CHECKLIST.md) a
 ## Performance architecture
 
 The marketing page is a Server Component; no page-wide client hydration is required. The first viewport uses CSS-only entrance animation; a dedicated client `Reveal` wrapper handles progressive on-scroll motion. Reduced-motion support remains active.
+
+V3 motion performance: scroll reveals use browser-native IntersectionObserver and Web Animations API. The static landing content stays visible even if client-side JavaScript does not load.
