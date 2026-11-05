@@ -2,32 +2,28 @@
 
 **Know what's worth building.**
 
-A research-first startup decision product. This repository contains the first landing-page sprint: premium responsive marketing page and the early `/start` path selection screen.
+Current milestone: pre-launch informational landing page, preliminary `/start` path selector, and transparent legal/information pages. No deployment, live market research, checkout or paid report delivery is included in this milestone.
 
-## Run locally
+## Develop locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000
-
-## Verify
+## Validate
 
 ```bash
 npm run typecheck
 npm run build
 ```
 
-## Current scope
+## Routes
 
-- Editorial single-page landing with responsive research visuals, hover states, and subtle Motion animation
-- Main CTA links to `/start`; landing collects **no inputs or user data**
-- Sample research is visibly marked **illustrative**, not represented as real findings
-- `/start` previews the two entry modes; research intake, live search, checkout and reports are *not connected yet*
-- No external photos, trackers, fonts or environment variables
+- `/` — premium informational landing with no inputs
+- `/start` — direction/discovery UI preview (not yet connected to research)
+- `/privacy`, `/terms`, `/refunds`, `/disclaimer`, `/cookies`, `/contact`, `/accessibility`
 
-## Planned next steps
+Research visuals and example verdicts are **illustrative only**, not actual findings. The proposed $29 report is not purchasable yet.
 
-Research intake and real sourced research engine, then preview-to-checkout and full report delivery. Keep evidence grounded; never invent sources, customer counts, or probabilities.
+Before launch, complete [LEGAL_LAUNCH_CHECKLIST.md](LEGAL_LAUNCH_CHECKLIST.md) and configure a real monitored support address using `NEXT_PUBLIC_SUPPORT_EMAIL`.

@@ -140,11 +140,11 @@ function Hero() {
         </motion.div>
         <motion.h1 id="hero-title" {...appear(0.15)}>Know what&apos;s<br /><span className="headline-last">worth <span className="headline-underlined">building<svg className="headline-stroke" viewBox="0 0 370 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C103 3, 228 3, 368 11" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round"/></svg></span>.</span></motion.h1>
         <motion.p className="hero-description" {...appear(0.3)}>
-          Stop guessing which startup idea might work. Explore real market signals, understand the competition, and make your next move with clarity.
+          Study the market before you commit to the build. Understand potential buyers, investigate competing solutions, and decide what to test next.
         </motion.p>
         <motion.div className="hero-action" {...appear(0.42)}>
           <StartLink className="hero-button" />
-          <span className="hero-note">Free research preview <span className="note-separator">·</span> No account required</span>
+          <span className="hero-note">Research flow preview <span className="note-separator">·</span> No account required</span>
         </motion.div>
         <motion.div className="hero-showcase" {...appear(0.52)}>
           <div className="hero-showcase-label"><span><span className="live-square" /> INSIDE A STARTPICK DECISION</span><span>SCROLL TO EXPLORE <ArrowRight size={13}/></span></div>
@@ -317,19 +317,37 @@ function Closing() {
         <Reveal><Eyebrow>YOUR NEXT MOVE STARTS HERE</Eyebrow></Reveal>
         <Reveal><h2 id="closing-title">Great companies start<br />with better questions<span className="blue-period">.</span></h2></Reveal>
         <Reveal delay={0.08}><p>Make the next decision with more than a hunch.</p></Reveal>
-        <Reveal delay={0.16}><StartLink className="closing-button" /><span className="closing-footnote">Explore for free · Full decision report $29, one-time</span></Reveal>
+        <Reveal delay={0.16}><StartLink className="closing-button" /><span className="closing-footnote">Research preview now · Full report planned at $29, one-time</span></Reveal>
       </div>
     </section>
   );
 }
 
 function Footer() {
+  const policies = [
+    { href: "/privacy", label: "Privacy" }, { href: "/terms", label: "Terms" },
+    { href: "/refunds", label: "Refunds" }, { href: "/disclaimer", label: "Disclaimer" },
+    { href: "/cookies", label: "Cookies" }, { href: "/accessibility", label: "Accessibility" },
+    { href: "/contact", label: "Contact" }
+  ];
   return (
     <footer className="footer">
-      <div className="shell footer-inner">
-        <Logo />
-        <p>Better decisions before bigger commitments.</p>
+      <div className="shell footer-upper">
+        <div className="footer-identity">
+          <Logo />
+          <p>Clarity before commitment.<br />Evidence before execution.</p>
+        </div>
+        <nav className="footer-policy-links" aria-label="Legal information and contact">
+          <div className="footer-links-label">INFORMATION</div>
+          <div className="footer-link-grid">
+            {policies.map(policy => <Link href={policy.href} key={policy.href}>{policy.label}</Link>)}
+          </div>
+        </nav>
+      </div>
+      <div className="shell footer-lower">
         <span>© {new Date().getFullYear()} StartPick.</span>
+        <span>Independent thinking. Informed decisions.</span>
+        <span>Pre-launch product preview.</span>
       </div>
     </footer>
   );
@@ -339,7 +357,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <Problem />
         <Capabilities />

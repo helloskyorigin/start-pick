@@ -9,7 +9,7 @@ type Mode = "direction" | "discover" | null;
 export default function StartPage() {
   const [selected, setSelected] = useState<Mode>(null);
   return (
-    <main className="start-page">
+    <main id="main-content" className="start-page">
       <div className="start-header shell">
         <Link href="/" className="back-link"><ArrowLeft size={16}/> Back to StartPick</Link>
         <span className="start-step">STEP 01 / CHOOSE A PATH</span>

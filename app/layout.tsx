@@ -21,7 +21,7 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><a href="#main-content" className="skip-link">Skip to main content</a>{children}</body>
     </html>
   );
 }
