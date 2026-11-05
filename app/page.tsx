@@ -1,15 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import {
   ArrowUpRight, Check, ChevronRight, CircleDot,
   Compass, Crosshair, FileSearch, Layers3, MoveUpRight, Search,
   ShieldCheck, Sparkles, Target, TrendingUp
 } from "lucide-react";
-import type { ReactNode } from "react";
-
-const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
+import { Intro } from "@/components/intro";
+import { Reveal } from "@/components/reveal";
 
 function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
@@ -30,21 +26,6 @@ function StartLink({ theme = "dark", className = "" }: { theme?: "dark" | "light
       <span>Start</span>
       <ArrowUpRight size={18} strokeWidth={1.9} aria-hidden="true" />
     </Link>
-  );
-}
-
-function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
-  const reduced = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduced ? false : { opacity: 0, y: 24 }}
-      whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12, margin: "0px 0px -36px 0px" }}
-      transition={{ duration: 0.68, delay, ease }}
-    >
-      {children}
-    </motion.div>
   );
 }
 
@@ -123,34 +104,28 @@ function ResearchStage() {
 }
 
 function Hero() {
-  const reduced = useReducedMotion();
-  const appear = (delay: number) => ({
-    initial: reduced ? false as const : { opacity: 0, y: 24 },
-    animate: reduced ? undefined : { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease }
-  });
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-orbit" aria-hidden="true" />
       <div className="hero-content shell">
-        <motion.div className="hero-kicker" {...appear(0.04)}>
+        <Intro className="hero-kicker" delay={0.04}>
           <span className="hero-kicker-symbol"><Crosshair size={12} strokeWidth={2.5}/></span>
           RESEARCH BEFORE YOU BUILD
           <span className="hero-kicker-index">/ STARTPICK 001</span>
-        </motion.div>
-        <motion.h1 id="hero-title" {...appear(0.15)}>Know what&apos;s<br /><span className="headline-last">worth <span className="headline-underlined">building<svg className="headline-stroke" viewBox="0 0 370 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C103 3, 228 3, 368 11" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round"/></svg></span>.</span></motion.h1>
-        <motion.p className="hero-description" {...appear(0.3)}>
+        </Intro>
+        <Intro delay={0.15}><h1 id="hero-title">Know what&apos;s<br /><span className="headline-last">worth <span className="headline-underlined">building<svg className="headline-stroke" viewBox="0 0 370 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C103 3, 228 3, 368 11" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round"/></svg></span>.</span></h1></Intro>
+        <Intro delay={0.3}><p className="hero-description">
           Study the market before you commit to the build. Understand potential buyers, investigate competing solutions, and decide what to test next.
-        </motion.p>
-        <motion.div className="hero-action" {...appear(0.42)}>
+        </p></Intro>
+        <Intro className="hero-action" delay={0.42}>
           <StartLink className="hero-button" />
           <span className="hero-note">Explore the flow <span className="note-separator">·</span> No account required</span>
-        </motion.div>
-        <motion.div className="hero-showcase" {...appear(0.52)}>
+        </Intro>
+        <Intro className="hero-showcase" delay={0.52}>
           <div className="hero-showcase-label"><span><span className="live-square" /> PRODUCT RESEARCH PREVIEW</span><span className="preview-honesty"><span className="preview-honesty-dot" /> ILLUSTRATIVE — NO LIVE FINDINGS</span></div>
           <p className="sr-only">Illustrative research brief showing three areas to examine: customer pain, existing alternatives, and important assumptions. This preview does not display live research.</p>
           <ResearchStage />
-        </motion.div>
+        </Intro>
       </div>
     </section>
   );

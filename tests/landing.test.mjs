@@ -48,3 +48,10 @@ test("pre-launch robots indexing must be explicitly enabled", () => {
   assert.match(layout, /NEXT_PUBLIC_SITE_LIVE/);
   assert.match(read(".env.example"), /NEXT_PUBLIC_SITE_LIVE=false/);
 });
+
+test("marketing page stays server-rendered; animation wrapper stays isolated", () => {
+  assert.doesNotMatch(landing, /["']use client["']/);
+  assert.match(landing, /components\\/reveal/);
+  assert.match(read("components/reveal.tsx"), /"use client"/);
+  assert.match(read("components/intro.tsx"), /intro-on-load/);
+});

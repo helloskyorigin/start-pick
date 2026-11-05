@@ -36,3 +36,7 @@ Before launch, complete [LEGAL_LAUNCH_CHECKLIST.md](LEGAL_LAUNCH_CHECKLIST.md) a
 - Print-friendly policy pages
 - Pre-launch robots noindex default; set `NEXT_PUBLIC_SITE_LIVE=true` only after launch checks
 - Automated source-level smoke checks via `npm test`
+
+## Performance architecture
+
+The marketing page is a Server Component; no page-wide client hydration is required. The first viewport uses CSS-only entrance animation; a dedicated client `Reveal` wrapper handles progressive on-scroll motion. Reduced-motion support remains active.
