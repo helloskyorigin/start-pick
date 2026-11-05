@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "StartPick — Know What's Worth Building",
   description: "Research startup opportunities with market evidence, competitor intelligence, and an actionable path to a better founder decision.",
   applicationName: "StartPick",
+  icons: { icon: "/favicon.svg" },
   keywords: ["startup research", "startup validation", "competitor analysis", "founder decision", "market research"],
   robots: { index: true, follow: true },
   openGraph: {
