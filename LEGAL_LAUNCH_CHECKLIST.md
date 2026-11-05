@@ -10,3 +10,6 @@ This is a **development-only** milestone, not a legal compliance certification. 
 - [ ] Review legal content for the countries in which the product will actually be offered, including applicable privacy and consumer protection rules.
 - [ ] Test all routes, screen sizes, text zoom, keyboard focus, screen readers, and reduced-motion handling on real browsers.
 - [ ] Run `npm run typecheck` and `npm run build` successfully and complete QA before considering deployment.
+
+- [ ] Set `NEXT_PUBLIC_SITE_LIVE=true` only after deployment approval; by default search indexing is disabled in development.
+- [ ] Verify accessible contrast of all research preview micro-labels against real rendered backgrounds at 320px–1440px.

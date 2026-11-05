@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import {
-  ArrowRight, ArrowUpRight, Check, ChevronRight, CircleDot,
+  ArrowUpRight, Check, ChevronRight, CircleDot,
   Compass, Crosshair, FileSearch, Layers3, MoveUpRight, Search,
   ShieldCheck, Sparkles, Target, TrendingUp
 } from "lucide-react";
@@ -26,7 +26,7 @@ function Logo({ inverted = false }: { inverted?: boolean }) {
 
 function StartLink({ theme = "dark", className = "" }: { theme?: "dark" | "light"; className?: string }) {
   return (
-    <Link href="/start" className={["start-link", theme === "light" ? "start-link-light" : "start-link-dark", className].join(" ")}>
+    <Link href="/start" aria-label="Start with StartPick" className={["start-link", theme === "light" ? "start-link-light" : "start-link-dark", className].join(" ")}>
       <span>Start</span>
       <ArrowUpRight size={18} strokeWidth={1.9} aria-hidden="true" />
     </Link>
@@ -74,7 +74,7 @@ function SignalDots() {
 
 function ResearchStage() {
   return (
-    <div className="research-stage">
+    <div className="research-stage" aria-hidden="true">
       <div className="stage-hairline" aria-hidden="true" />
       <div className="stage-topbar">
         <div className="stage-topbrand"><span className="stage-topbrand-square" /> STARTPICK <span className="stage-slash">/</span> FIELD NOTES</div>
@@ -144,10 +144,11 @@ function Hero() {
         </motion.p>
         <motion.div className="hero-action" {...appear(0.42)}>
           <StartLink className="hero-button" />
-          <span className="hero-note">Research flow preview <span className="note-separator">·</span> No account required</span>
+          <span className="hero-note">Explore the flow <span className="note-separator">·</span> No account required</span>
         </motion.div>
         <motion.div className="hero-showcase" {...appear(0.52)}>
-          <div className="hero-showcase-label"><span><span className="live-square" /> INSIDE A STARTPICK DECISION</span><span>SCROLL TO EXPLORE <ArrowRight size={13}/></span></div>
+          <div className="hero-showcase-label"><span><span className="live-square" /> PRODUCT RESEARCH PREVIEW</span><span className="preview-honesty"><span className="preview-honesty-dot" /> ILLUSTRATIVE — NO LIVE FINDINGS</span></div>
+          <p className="sr-only">Illustrative research brief showing three areas to examine: customer pain, existing alternatives, and important assumptions. This preview does not display live research.</p>
           <ResearchStage />
         </motion.div>
       </div>
@@ -289,6 +290,8 @@ function Sample() {
           <Reveal delay={0.2}><span className="sample-note"><span className="sample-note-dot" />Example shown is illustrative, not live research.</span></Reveal>
         </div>
         <Reveal className="sample-visual" delay={0.18}>
+          <p className="sr-only">Example report: an AI support opportunity for small software companies, with a preliminary recommendation to test a narrow customer segment and validate buyer needs.</p>
+          <div className="sample-visual-illustration" aria-hidden="true">
           <div className="sample-paper">
             <div className="paper-head"><span><span className="paper-logo-mark">S<span>.</span></span> STARTPICK RESEARCH</span><span>DECISION NOTE / 001</span></div>
             <div className="paper-titleline">RESEARCH SUMMARY <span>01 / 04</span></div>
@@ -303,6 +306,7 @@ function Sample() {
           </div>
           <div className="sample-float sample-float-top"><span className="float-icon"><Crosshair size={16}/></span><div><span>DECISION FIRST</span><strong>Know what to test.</strong></div></div>
           <div className="sample-float sample-float-bottom"><span className="float-blue-dot"/><span>SOURCE-AWARE THINKING</span><ArrowUpRight size={16}/></div>
+          </div>
         </Reveal>
       </div>
     </section>
@@ -317,7 +321,7 @@ function Closing() {
         <Reveal><Eyebrow>YOUR NEXT MOVE STARTS HERE</Eyebrow></Reveal>
         <Reveal><h2 id="closing-title">Great companies start<br />with better questions<span className="blue-period">.</span></h2></Reveal>
         <Reveal delay={0.08}><p>Make the next decision with more than a hunch.</p></Reveal>
-        <Reveal delay={0.16}><StartLink className="closing-button" /><span className="closing-footnote">Research preview now · Full report planned at $29, one-time</span></Reveal>
+        <Reveal delay={0.16}><StartLink className="closing-button" /><span className="closing-footnote">See the product preview · Full report planned at $29, one-time</span></Reveal>
       </div>
     </section>
   );

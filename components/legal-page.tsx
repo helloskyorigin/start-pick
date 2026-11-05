@@ -52,7 +52,7 @@ export function LegalPage({ slug }: { slug: LegalSlug }) {
       </main>
       <footer className="legal-footer">
         <div className="shell legal-footer-content">
-          <span>© 2026 StartPick. Research before you build.</span>
+          <span>© {new Date().getFullYear()} StartPick. Research before you build.</span>
           <nav aria-label="Other information pages">
             {legalLinks.filter(link=>link.href!==`/${slug}`).map(link=><Link key={link.href} href={link.href}>{link.label}</Link>)}
           </nav>

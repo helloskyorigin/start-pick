@@ -27,3 +27,12 @@ npm run build
 Research visuals and example verdicts are **illustrative only**, not actual findings. The proposed $29 report is not purchasable yet.
 
 Before launch, complete [LEGAL_LAUNCH_CHECKLIST.md](LEGAL_LAUNCH_CHECKLIST.md) and configure a real monitored support address using `NEXT_PUBLIC_SUPPORT_EMAIL`.
+
+## V3 accessibility and trust refinements
+
+- Clear illustrative status on mobile and desktop research mockups
+- Reduced overlap and larger labels on narrow screens
+- 44px minimum Start CTA, focus-visible states and meaningful skip link
+- Print-friendly policy pages
+- Pre-launch robots noindex default; set `NEXT_PUBLIC_SITE_LIVE=true` only after launch checks
+- Automated source-level smoke checks via `npm test`
